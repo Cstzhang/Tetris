@@ -5,6 +5,13 @@ public class GroupsManager : MonoBehaviour {
 	float lastFallTime = 0;
 	// Use this for initialization
 	void Start () {
+		//判断当前还有没有容量
+		if(!isValidGridPos()){
+			Debug.Log ("GAME OVER");
+			Destroy (gameObject);
+		}
+	
+		
 	}
 	
 	// Update is called once per frame
@@ -30,6 +37,21 @@ public class GroupsManager : MonoBehaviour {
 			transform.position += new Vector3 (0, -1, 0); 
 			lastFallTime = Time.time;
 		}
+
 	}
+
+	//是否有效，还有存放空间
+	bool isValidGridPos() {
+		foreach (Transform child in transform) {
+			Vector2 v = Grid.roundVec2 (child.position);
+			if (!Grid.insideBorder (v)) {
+				return false;
+			}
+		}
+			
+		return true;
+		
+	}
+
 
 }
