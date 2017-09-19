@@ -20,10 +20,6 @@ public class Spawner : MonoBehaviour {
 	public void SpawnNext() {
 		int i = Random.Range (0, groups.Length);
 		GameObject ins = Instantiate (groups [i], transform.position, Quaternion.identity) as GameObject;
-
-
-
-
 	}
 
 
