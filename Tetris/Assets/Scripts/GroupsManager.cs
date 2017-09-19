@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class GroupsManager : MonoBehaviour {
-
+	float lastFallTime = 0;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -27,10 +26,9 @@ public class GroupsManager : MonoBehaviour {
 
 		}
 	  //4，控制方块 快速掉落
-		else if(Input.GetKeyDown(KeyCode.DownArrow)){
-
+		else if(Input.GetKeyDown(KeyCode.DownArrow) || Time.time - lastFallTime >= 1){
 			transform.position += new Vector3 (0, -1, 0); 
-
+			lastFallTime = Time.time;
 		}
 	}
 
