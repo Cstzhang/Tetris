@@ -71,8 +71,6 @@ public class Grid : MonoBehaviour {
                 grid[x, y-1].position += new Vector3(0, -1, 0);
 
             }
-
-
         }
 	
 
@@ -84,7 +82,7 @@ public class Grid : MonoBehaviour {
     public static void DecreaseRowbove(int y) {
         for (int i = y; i< h; i++){
 
-            DescreaseRow(y);
+            DescreaseRow(i);
 
         }
 

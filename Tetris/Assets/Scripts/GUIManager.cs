@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour {
 
 	float gameTime,startTime;
-	Text timer;
+	Text timeText,scoreText;
 	// Use this for initialization
 	void Start () {
 		//计时器
-		timer = GameObject.Find("Canvas/Timer").GetComponent<Text>();
+		timeText = GameObject.Find("Canvas/Timer").GetComponent<Text>();
 		//得到游戏开始时间 s
 		startTime = Time.time;
 
@@ -27,7 +27,7 @@ public class GUIManager : MonoBehaviour {
 		// time string  Format
 		string strTime = string.Format("{0:00}:{1:00}",minutes,seconds);
 
-		timer.text = strTime;
+		timeText.text = strTime;
 	}
 
 
