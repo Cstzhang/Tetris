@@ -5,9 +5,13 @@ public class GroupsManager : MonoBehaviour {
 	float lastFallTime = 0;
 	// Use this for initialization
 	void Start () {
-		//判断当前还有没有容量
+		//判断当前还有没有容量 没有则游戏结束
 		if(!IsValidGridPos()){
 			Debug.Log ("GAME OVER");
+            //show gameover UI
+            //GameObject bg =  GameObject.Find("Canvas/Background");
+            GameObject.Find("Canvas").GetComponent<GUIManager>().GameOver();
+            //delete
 			Destroy (gameObject);
 		}
 	
@@ -41,6 +45,7 @@ public class GroupsManager : MonoBehaviour {
 
 			}
 		}
+
 	  //3，控制方块 旋转
 		else if(Input.GetKeyDown(KeyCode.UpArrow)){
 			//选择
@@ -67,6 +72,7 @@ public class GroupsManager : MonoBehaviour {
 
 				//调用下一个
 				FindObjectOfType<Spawner> ().SpawnNext ();
+
 				//让当前的脚本失效
 				enabled = false;
 

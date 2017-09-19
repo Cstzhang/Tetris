@@ -10,7 +10,6 @@ public class Grid : MonoBehaviour {
 	void Start () {
 
 	}
-	// Update is called once per frame
 	void Update () {
 	
 	}
@@ -52,6 +51,7 @@ public class Grid : MonoBehaviour {
             if(IsRowFull(y)){
                 DeleteRow(y);
                 DecreaseRowbove(y+1);
+                GameObject.Find("Canvas").GetComponent<GUIManager>().scoreAdd();
             }else{
 
                 y++;
@@ -81,7 +81,6 @@ public class Grid : MonoBehaviour {
     //从指定的行数开始检查，改行和改行以上的位置，上面的位置整体下移一格
     public static void DecreaseRowbove(int y) {
         for (int i = y; i< h; i++){
-
             DescreaseRow(i);
 
         }
