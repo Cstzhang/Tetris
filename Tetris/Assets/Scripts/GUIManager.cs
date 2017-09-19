@@ -6,7 +6,6 @@ public class GUIManager : MonoBehaviour {
 
 	float gameTime,startTime;
 	Text timer;
-
 	// Use this for initialization
 	void Start () {
 		//计时器
